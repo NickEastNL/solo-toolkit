@@ -1,0 +1,13 @@
+.token-vision-browser
+	header
+		h2 Currently selected Tokens
+	section.tokens-section
+		ul.token-list
+			| {{#each tokenData}}
+			li.token-list-item
+				img.img(src="{{this.img}}")
+				h4.name {{this.name}}
+			| {{/each}}
+	footer
+		p Select Tokens whose vision should be maintained, and click "Assign".
+		button.assign-btn Assign

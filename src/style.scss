@@ -1,0 +1,164 @@
+#chat {
+	#chat-buttons {
+		flex: 0;
+		margin: 6px;
+
+		button {
+			height: 28px;
+			line-height: 26px;
+		}
+	}
+
+	.chat-message {
+		.message-copy {
+			flex: 0;
+			margin-right: 2px;
+			font-size: var(--font-size-12);
+		}
+	}
+}
+
+#token-vision-browser {
+	.window-content {
+		overflow: hidden;
+	}
+}
+
+.token-vision-browser {
+	display: flex;
+	flex-flow: column;
+	gap: 4px;
+
+	footer p {
+		font-size: var(--font-size-13);
+	}
+
+	.assign-btn {
+		margin: 0;
+	}
+
+	.tokens-section {
+		flex: 1;
+		display: flex;
+		flex-flow: column;
+		background-color: rgba(0, 0, 0, 0.1);
+		border: 1px solid var(--color-border-light-tertiary);
+		border-radius: 5px;
+		overflow: hidden;
+	}
+
+	.token-list {
+		flex: 1 0 auto;
+		height: 0;
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow-y: auto;
+
+		&-item {
+			display: flex;
+			gap: 4px;
+			padding: 6px;
+
+			&:not(:last-child) {
+				border-bottom: 1px solid var(--color-border-light-tertiary);
+			}
+
+			img {
+				flex: 0 0 var(--sidebar-item-height);
+				height: var(--sidebar-item-height);
+				border: none;
+			}
+
+			.name {
+				flex: 1;
+				margin: 0;
+				line-height: var(--sidebar-item-height);
+			}
+		}
+	}
+}
+
+#message-browser {
+	.window-content {
+		padding: 0;
+	}
+}
+
+.message-browser {
+	.message-box {
+		padding: 6px;
+		border-bottom: 1px solid var(--color-border-light-tertiary);
+		overflow: hidden;
+
+		&-header {
+			flex: 0;
+		}
+
+		.chat-renderer {
+			flex: 1 0 auto;
+			height: 0;
+			padding: 3px;
+			border: 1px solid var(--color-border-dark);
+			border-radius: 3px;
+			background-color: rgba(0, 0, 0, 0.8);
+			overflow-y: auto;
+		}
+	}
+
+	.actions {
+		flex: 0;
+		gap: 6px;
+		margin: 6px;
+
+		.search {
+			gap: 3px;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+
+			> * {
+				flex: 0;
+			}
+
+			input {
+				flex: 1;
+			}
+		}
+		.template {
+			flex: 0;
+			gap: 3px;
+
+			&-btn {
+				flex: 0 0 32px;
+				width: 32px;
+				line-height: 0.6;
+			}
+
+			> * {
+				gap: 3px;
+			}
+		}
+
+		.example {
+			&-renderer {
+				padding: 6px;
+				border: 1px solid var(--color-border-light-tertiary);
+				border-radius: 3px;
+			}
+		}
+
+		button {
+			margin: 0;
+		}
+	}
+
+	&-dataview {
+		flex: 1;
+
+		pre {
+			margin: 0 0 6px 0;
+			overflow: auto;
+		}
+	}
+}

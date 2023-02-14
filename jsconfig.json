@@ -1,0 +1,18 @@
+{
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@actor": ["src/module/actor"],
+			"@actor/*": ["src/module/actor/*"],
+			"@data/*": ["src/module/data/*"],
+			"@item": ["src/module/item"],
+			"@item/*": ["src/module/item/*"],
+			"@module/*": ["src/module/*"],
+			"@sheets/*": ["src/sheets/*"],
+			"@util": ["src/util"],
+			"@util/*": ["src/util/*"]
+		}
+	},
+	"exclude": ["webpack.config.babel.js"],
+	"include": ["src", "../foundry-source"]
+}

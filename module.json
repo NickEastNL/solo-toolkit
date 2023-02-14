@@ -1,0 +1,19 @@
+{
+	"id": "solo-toolkit",
+	"title": "Solo RPG Toolkit",
+	"description": "A suite of tools aimed at making solo roleplaying easier using Foundry VTT.",
+	"version": "1.0.0",
+	"compatibility": {
+		"minimum": "10",
+		"verified": "10",
+		"maximum": "10"
+	},
+	"authors": [
+		{
+			"name": "Nick van Oosten",
+			"discord": "NickEast#1131"
+		}
+	],
+	"esmodules": ["main.bundle.js"],
+	"styles": ["main.css"]
+}

@@ -1,0 +1,48 @@
+{
+	"env": {
+		"browser": true,
+		"es6": true
+	},
+	"extends": ["prettier", "eslint:recommended"],
+	"plugins": ["prettier"],
+	"parserOptions": {
+		"ecmaVersion": 2020,
+		"sourceType": "module"
+	},
+	"ignorePatterns": ["dist"],
+	"rules": {
+		"no-mixed-spaces-and-tabs": ["error", "smart-tabs"]
+	},
+	"globals": {
+		// Compiler globals
+		"__BUILD_MODE__": "readonly",
+		"module": "readonly",
+
+		// Foundry globals
+		"$": "readonly",
+		"gsap": "readonly",
+		"_templateCache": "readonly",
+		"loadTemplates": "readonly",
+		"ui": "readonly",
+		"foundry": "readonly",
+		"game": "readonly",
+		"canvas": "readonly",
+		"mergeObject": "readonly",
+		"Handlebars": "readonly",
+		"renderTemplate": "readonly",
+
+		// Foundry classes
+		"CONFIG": "readonly",
+		"Application": "readonly",
+		"Hooks": "readonly",
+		"Actor": "readonly",
+		"Actors": "readonly",
+		"ActorSheet": "readonly",
+		"Item": "readonly",
+		"Items": "readonly",
+		"ItemSheet": "readonly",
+		"Token": "readonly",
+		"Note": "readonly",
+		"Dialog": "readonly"
+	}
+}
