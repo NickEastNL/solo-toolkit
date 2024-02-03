@@ -1,0 +1,78 @@
+# System Release Workflow
+
+# Reference:
+#   - https://github.com/foundryvtt/crucible/blob/master/.github/workflows/release.yml
+
+name: System Release Build
+
+env:
+  node_version: 18
+  latest_manifest_url: 'https://github.com/${{github.repository}}/releases/latest/download/system.json'
+  release_download_url: 'https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/system.zip'
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.node_version }}
+
+      - name: Cache Node.js modules
+        uses: actions/cache@v4.0.0
+        with:
+          path: .npm
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-
+
+      - name: Install dependencies
+        run: npm ci --cache .npm --prefer-offline
+
+      # Compile SCSS
+      - name: Compile
+        run: npm run sass
+
+      # Modify system.json with values specific to the release.
+      - name: Modify System Manifest
+        id: sub_manifest_link_version
+        uses: cschleiden/replace-tokens@v1.2
+        with:
+          files: 'system.json'
+        env:
+          MANIFEST: ${{ env.latest_manifest_url }}
+          DOWNLOAD: ${{ env.release_download_url }}
+
+      # Create a "system.zip" archive containing all the system's required files
+      - name: Create System Archive
+        run: |
+          zip --recurse-paths ./module.zip	\
+            LICENSE                       	\
+            module.json                   	\
+            solo-toolkit.mjs               	\
+            solo-toolkit.css               	\
+            module/						  	\
+            templates/
+
+      # Update the GitHub release with the manifest and system archive files.
+      - name: Update Release With Files
+        id: create_version_release
+        uses: ncipollo/release-action@v1.13.0
+        with:
+          allowUpdates: true
+          name: ${{ github.event.release.name }}
+          draft: ${{ github.event.release.unpublished }}
+          prerelease: ${{ github.event.release.prerelease }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          artifacts: './module.json, ./module.zip'
+          tag: ${{ github.event.release.tag_name }}
+          body: ${{ github.event.release.body }}
