@@ -5,7 +5,7 @@
 	"version": "0.1.0",
 	"manifest": "#{MANIFEST}#",
 	"download": "#{DOWNLOAD}#",
-	"url": "https://foundryvtt.com/packages/doctor-who",
+	"url": "https://github.com/NickEastNL/solo-toolkit",
 	"authors": [
 		{
 			"name": "Nick van Oosten",
