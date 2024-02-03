@@ -4,9 +4,8 @@
 	"description": "A suite of tools aimed at making solo roleplaying easier using Foundry VTT.",
 	"version": "1.0.0",
 	"compatibility": {
-		"minimum": "10",
-		"verified": "10",
-		"maximum": "10"
+		"minimum": 11,
+		"verified": 11
 	},
 	"authors": [
 		{
@@ -14,6 +13,13 @@
 			"discord": "NickEast#1131"
 		}
 	],
-	"esmodules": ["main.bundle.js"],
-	"styles": ["main.css"]
+	"esmodules": ["solo-toolkit.mjs"],
+	"styles": ["solo-toolkit.css"],
+	"socket": true,
+	"flags": {
+		"hotReload": {
+			"extensions": ["css", "json", "hbs"],
+			"path": ["lang", "module", "styles", "templates", "solo-toolkit.css"]
+		}
+	}
 }

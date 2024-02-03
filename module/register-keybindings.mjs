@@ -1,4 +1,4 @@
-export function registerKeybindings() {
+export default function registerKeybindings() {
 	game.keybindings.register('solo-toolkit', 'gmTokenVision', {
 		name: 'Toggle Token vision for GMs',
 		editable: [{ key: 'KeyG', modifiers: ['Control'] }],
@@ -12,7 +12,7 @@ export function registerKeybindings() {
 				const toggle = ui.controls.control.tools.find((t) => t.name === 'gmTokenVision');
 				toggle?.onClick?.();
 			} else {
-				game.settings.set('solo-toolkit', 'gmTokenVision', !game.settings.get('solo-toolkit', 'gmTokenVision'));
+				game.settings.set(SYSTEM.id, 'gmTokenVision', !game.settings.get(SYSTEM.id, 'gmTokenVision'));
 			}
 			return true;
 		},

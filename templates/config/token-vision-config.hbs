@@ -1,0 +1,18 @@
+<div class="token-vision-config">
+	<header>
+		<h2>Currently selected Tokens</h2>
+	</header>
+	<section class="tokens-section">
+		<ul class="token-list">
+			{{#each tokenData}}
+				<li class="token-list-item"><img class="img" src="{{this.img}}" />
+					<h4 class="name">{{this.name}}</h4>
+				</li>
+			{{/each}}
+		</ul>
+	</section>
+	<footer>
+		<p>Select Tokens whose vision should be maintained, and click "Assign".</p>
+		<button class="assign-btn">Assign</button>
+	</footer>
+</div>

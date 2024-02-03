@@ -1,5 +1,5 @@
-dist
 node_modules
-foundry
+app
 
-foundryconfig.json
+*.css
+*.css.map

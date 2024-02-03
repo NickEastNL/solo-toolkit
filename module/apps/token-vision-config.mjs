@@ -1,21 +1,21 @@
-export class TokenVisionBrowser extends Application {
+export default class TokenVisionConfig extends Application {
 	constructor(options = {}) {
 		super(options);
 	}
 
 	static get defaultOptions() {
 		return mergeObject(super.defaultOptions, {
-			id: 'token-vision-browser',
+			id: 'token-vision-config',
 			height: 300,
 			width: 250,
 			left: 120,
-			template: 'modules/solo-toolkit/templates/token-vision-browser.hbs',
-			title: 'Token Vision Browser',
+			template: 'modules/solo-toolkit/templates/config/token-vision-config.hbs',
+			title: 'Token Vision Config',
 		});
 	}
 
 	getData() {
-		const selectedTokens = game.srpg.gmTokenVisionTokens;
+		const selectedTokens = game.settings.get(SYSTEM.id, 'gmTokenVisionTokens');
 		const tokenData = [];
 
 		if (selectedTokens.length === 0) return {};
@@ -62,15 +62,15 @@ export class TokenVisionBrowser extends Application {
 	}
 
 	updateSelectedTokens(tokenIds) {
-		game.settings.set('solo-toolkit', 'gmTokenVisionTokens', tokenIds);
+		game.settings.set(SYSTEM.id, 'gmTokenVisionTokens', tokenIds);
 
-		if (game.srpg.tokenVisionBrowser.rendered) game.srpg.tokenVisionBrowser.render(true);
+		if (this.rendered) this.render(true);
 
 		this._updateVision();
 	}
 
 	toggleVision() {
-		const tokenIds = game.srpg.gmTokenVisionTokens;
+		const tokenIds = game.settings.get(SYSTEM.id, 'gmTokenVisionTokens');
 
 		if (!tokenIds.length === 0) return;
 

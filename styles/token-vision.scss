@@ -1,0 +1,60 @@
+#token-vision-config {
+	.window-content {
+		overflow: hidden;
+	}
+}
+
+.token-vision-config {
+	display: flex;
+	flex-flow: column;
+	gap: 4px;
+
+	footer p {
+		font-size: var(--font-size-13);
+	}
+
+	.assign-btn {
+		margin: 0;
+	}
+
+	.tokens-section {
+		flex: 1;
+		display: flex;
+		flex-flow: column;
+		background-color: rgba(0, 0, 0, 0.1);
+		border: 1px solid var(--color-border-light-tertiary);
+		border-radius: 5px;
+		overflow: hidden;
+	}
+
+	.token-list {
+		flex: 1 0 auto;
+		height: 0;
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow-y: auto;
+
+		&-item {
+			display: flex;
+			gap: 4px;
+			padding: 6px;
+
+			&:not(:last-child) {
+				border-bottom: 1px solid var(--color-border-light-tertiary);
+			}
+
+			img {
+				flex: 0 0 var(--sidebar-item-height);
+				height: var(--sidebar-item-height);
+				border: none;
+			}
+
+			.name {
+				flex: 1;
+				margin: 0;
+				line-height: var(--sidebar-item-height);
+			}
+		}
+	}
+}

@@ -1,0 +1,19 @@
+#chat {
+	#chat-buttons {
+		flex: 0;
+		margin: 6px;
+
+		button {
+			height: 28px;
+			line-height: 26px;
+		}
+	}
+
+	.chat-message {
+		.message-copy {
+			flex: 0;
+			margin-right: 2px;
+			font-size: var(--font-size-12);
+		}
+	}
+}
