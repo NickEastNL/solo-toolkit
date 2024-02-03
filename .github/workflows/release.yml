@@ -3,7 +3,7 @@
 # Reference:
 #   - https://github.com/foundryvtt/crucible/blob/master/.github/workflows/release.yml
 
-name: System Release Build
+name: Release Build
 
 env:
   node_version: 18
